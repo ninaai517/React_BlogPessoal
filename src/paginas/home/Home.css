@@ -1,0 +1,18 @@
+/*titulo*/
+
+.titulo{
+    text-align: center;
+    color: #596275;
+    font-family: cursive;
+    font-size: 100px;
+}
+
+/*Imagem cabeçalho*/
+
+.img{
+    width: 450px;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+    background-color: aqua;
+}
