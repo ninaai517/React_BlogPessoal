@@ -1,0 +1,27 @@
+.footer{
+   background-color: #74b9ff; 
+   height: 120px;
+}
+
+.footer2{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer3{
+   background-color: #0984e3;
+   height: 100px;
+}
+
+.texto3{
+   color: white;
+   text-align: center;
+   font-family: monospace !important;
+}
+
+.texto4{
+    font-size: 100px;
+    color: white;
+   
+}
