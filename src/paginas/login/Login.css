@@ -1,0 +1,35 @@
+.text-decorator-none{
+    text-decoration: none;
+
+}
+
+.texto{
+    font-weight: bold;
+    font-family:cursive !important;
+    color: #30336b !important;
+}
+
+.texto2{
+    display:flex;
+    justify-content: center;
+}
+
+.login{
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagemLogin{
+    background-image: url(https://wallpaperforu.com/wp-content/uploads/2020/09/polygon-wallpaper-20090615343547.jpg);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+

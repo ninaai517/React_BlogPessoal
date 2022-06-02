@@ -1,18 +1,41 @@
 /*titulo*/
 
+.caixa{
+    background-color: #74b9ff;
+}
 .titulo{
     text-align: center;
-    color: #000000;
-    font-family: cursive;
-    font-size: 100px;
+    color: #000000 !important;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    padding-top: 5vh;
+}
+
+.botao{
+    border-color: #fd79a8;
+    background-color: #f7f1e3 !important;
+    color: #fd79a8;
+    padding-bottom: 5vh;
 }
 
 /*Imagem cabeçalho*/
 
-.img{
-    width: 450px;
-    height: 300px;
-    display: block;
-    margin: 0 auto;
-    background-color: aqua;
+.postagens{
+    background-color: white;
 }
+
+.titulo{
+    text-align: center;
+    color: white !important;
+    font-family: monospace !important;
+}
+
+.titulo2{
+    text-align: center;
+    color: white !important;
+    font-family: monospace !important;
+    font-size: 20px;
+    padding-top:40px;
+    padding-bottom: 10px;
+}
+
