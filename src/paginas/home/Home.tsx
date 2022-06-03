@@ -3,6 +3,7 @@ import { Grid, Typography, Button } from '@material-ui/core';
 import { Box } from '@mui/material';
 import './Home.css'; //Importando o arquivo css da pasta home
 import { PaddingOutlined } from '@mui/icons-material';
+import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 
 function Home() { //um componente só retorna 1 elemento
     return (
@@ -26,7 +27,7 @@ function Home() { //um componente só retorna 1 elemento
 
                 <Grid xs={12} className='postagens'>
                 </Grid>
-
+                    <TabPostagem /> 
             </Grid>
         </>
     );
