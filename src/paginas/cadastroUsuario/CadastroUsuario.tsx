@@ -7,6 +7,7 @@ import { Box } from '@mui/material';
 import './CadastroUsuario.css';
 
 function CadastroUsuario() {
+    
     let navigate = useNavigate();
     const [confirmarSenha, setConfirmarSenha] = useState<String>("")
     const [user, setUser] = useState<User>(
@@ -28,14 +29,13 @@ function CadastroUsuario() {
     useEffect(() => {
         if (userResult.id != 0) {
             navigate("/login")
+            //console.log(userResult)
         }
     }, [userResult])
-
 
     function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
         setConfirmarSenha(e.target.value)
     }
-
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
@@ -43,8 +43,8 @@ function CadastroUsuario() {
             ...user,
             [e.target.name]: e.target.value
         })
-
     }
+
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if (confirmarSenha == user.senha) {
@@ -53,6 +53,7 @@ function CadastroUsuario() {
         } else {
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
         }
+    }
 
         return (
             <Grid container direction='row' justifyContent='center' alignItems='center'>
@@ -75,11 +76,11 @@ function CadastroUsuario() {
                         </form>
                     </Box>
 
-                </Grid>
+                </Grid>git 
 
             </Grid>
 
         );
     }
-}
+
     export default CadastroUsuario;
