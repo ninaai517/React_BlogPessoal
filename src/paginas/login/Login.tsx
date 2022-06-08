@@ -11,7 +11,13 @@ function Login(){
     let navigate = useNavigate();
     const [token, setToken] = useLocalStorage('token');
 
+    //useState-> função Hook responsável por fazer o CONTROLE dos estados de um componente, ou seja, torna esse estado manipulável. 
     const[userLogin, setUserLogin] = useState<UserLogin>(
+        /*userLogin -> estado inicial da componente; setUserLogin -> função que altera o estado da componente userLogin;
+            useState<UserLogin> -> UserLogin refere-se ao arquivo ts da pasta Models. 
+            ...()-> parametros do useState inicial. Add as variáveis da Model como zerado nesse caso que sofrerá atualizações graças ao
+            ...setUserLogin;
+        */
         {
             id: 0,
             usuario: '',
@@ -19,11 +25,19 @@ function Login(){
             token: '',
         })
     
-        function updateModel(e:ChangeEvent<HTMLInputElement>){
+        //updateModel -> trabalha em conjunto com o useState
+        function updatedModel(e:ChangeEvent<HTMLInputElement>){ 
+
+            /*  HTMLInputElement -> é uma interface em TS que faz a manipulação dos elementos Input do HTML como p. exemplo na tag <TextField>
+                {} -> acrescentado o método da function setUserLogin: o que fará ? o que ela manipulará ? */
+
             setUserLogin({
-                ...userLogin,
-                [e.target.name]:e.target.value //'...' sprade operator faz uma desestruturação, isto é, ele espalha todos os atributos dentro de user login pro set user login
-            }) //usada para fazer alteração das informações dentro do State (dados de login)
+                ...userLogin, //'...' sprade operator faz uma desestruturação, isto é, ele espalha todos os atributos dentro de user login pro set user login
+                [e.target.name]:e.target.value 
+            }) 
+
+                //e.target.name -> objeto c/ o name do campo. .value -> o dado inserido pelo usuário. 
+           //...usada para fazer alteração das informações dentro do State (dados de login)
 
         }
 
@@ -33,10 +47,11 @@ function Login(){
             }
         }, [token])
 
-        async function onSubmit(e:ChangeEvent<HTMLFormElement>){
-            e.preventDefault();
-            
+       //onSubmit-> é uma function responsável por enviar os dados de Login à API que, validará se o usuário digitado é válido.     
+        async function onSubmit(e:ChangeEvent<HTMLFormElement>){//FormElement pois trata-se de um envio de dados. 
+            e.preventDefault(); //e.preventDefault() -> previne que o botão atualize a tela, para que não perca as informações enviadas. 
             try{
+                
                 await login(`/usuarios/logar`, userLogin, setToken)
               
                 alert('Usuário logado com sucesso!');
@@ -51,8 +66,8 @@ function Login(){
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom  component='h3' align='center' className='texto'>Entrar</Typography>
-                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>)=>updateModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
-                        <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>)=>updateModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
+                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />    
+                        <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />  
                         <Box marginTop={2} textAlign='center'>
                              <Button type='submit' variant='contained' color='primary'>Logar</Button>
                          </Box>
