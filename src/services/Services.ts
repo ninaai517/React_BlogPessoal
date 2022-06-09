@@ -32,21 +32,25 @@ export const api= axios.create({
         setDado(resposta.data)
     }
 
+    //método Get (buscar)
     export const buscaId = async(url: any,setDado: any, header: any) => { 
         const resposta = await api.get(url,header)
         setDado(resposta.data)
     }
 
+    //inserir informações na API. Post
     export const post = async(url: any, dados: any, setDado: any, header: any) => { 
         const resposta = await api.post(url,dados,header)
         setDado(resposta.data)
     }
 
+    //Mét. Put (atualizar) dados na API. 
     export const put = async(url: any, dados: any, setDado: any, header: any) => { 
         const resposta = await api.put(url,dados,header)
         setDado(resposta.data)
     }
 
+    //Mét. Delete. Envia a rota e o token nesta requisição. 
     export const deleteId = async(url: any,header: any) => { 
         await api.delete(url,header)
     }
