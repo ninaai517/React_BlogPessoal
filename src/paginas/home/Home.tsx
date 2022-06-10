@@ -1,11 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import  {Link, useNavigate} from 'react-router-dom';
 import { Grid, Typography, Button } from '@material-ui/core';
 import { Box } from '@mui/material';
 import './Home.css'; //Importando o arquivo css da pasta home
 import { PaddingOutlined } from '@mui/icons-material';
 import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/TokensReducer';
 
 function Home() { //um componente só retorna 1 elemento
+
+    let navigate = useNavigate();
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
+    
+    useEffect(() => {
+      if (token == "") {
+          alert("Você precisa estar logado")
+          navigate("/login")
+  
+      }
+  }, [token])
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
@@ -16,8 +33,12 @@ function Home() { //um componente só retorna 1 elemento
                     </Box>
 
                     <Box display="flex" justifyContent="center">
-                        <Box marginRight={1}></Box>
-                        <Button variant="outlined" className='botao'>Postar</Button>
+                        <Box marginRight={1}>
+                            <ModalPostagem />
+                        </Box>
+                        <Link to="/posts" className='text-decorator-none'>
+                        <Button variant="outlined" className='botao '>Ver Postagens</Button>
+                        </Link>
                     </Box>
 
                 </Grid>

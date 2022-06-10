@@ -1,15 +1,17 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Grid, Box, Typography, TextField, Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Services';
 import UserLogin from '../../model/UserLogin';
 import './Login.css';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../store/tokens/Actions';
 
 function Login(){
 
     let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+    const dispatch  = useDispatch();
+    const [token, setToken] = useState('');
 
     //useState-> função Hook responsável por fazer o CONTROLE dos estados de um componente, ou seja, torna esse estado manipulável. 
     const[userLogin, setUserLogin] = useState<UserLogin>(
@@ -42,7 +44,8 @@ function Login(){
         }
 
         useEffect(()=>{
-            if(token != ''){
+            if(token !== ''){
+                dispatch(addToken(token));
                 navigate('/home')
             }
         }, [token])

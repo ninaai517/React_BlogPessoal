@@ -1,0 +1,11 @@
+.cursor{
+    cursor: pointer;
+}
+
+/*cursos pointer -> transforma o mouse em uma 'mãozinha'. 
+btnModal -> borda e fundo branco para o botão que estão recebendo essa classe;
+*/
+.btnModal{
+    border-color: white !important;
+    background-color: white !important;
+}

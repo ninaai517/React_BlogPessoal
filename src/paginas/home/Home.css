@@ -1,4 +1,7 @@
 /*titulo*/
+.text-decorator-none{
+    text-decoration: none !important;
+}
 
 .caixa{
     background-color: #74b9ff;
