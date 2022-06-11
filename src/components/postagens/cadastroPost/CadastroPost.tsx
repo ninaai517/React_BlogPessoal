@@ -7,6 +7,7 @@ import Postagem from '../../../model/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Services';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
+import { toast } from 'react-toastify';
 
 
 
@@ -20,7 +21,17 @@ import { TokenState } from '../../../store/tokens/TokensReducer';
 
         useEffect(() => {
             if (token == "") {
-                alert("Você precisa estar logado")
+                toast.error("Você precisa estar logado!", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+        
+                });
                 navigate("/login")
 
             }
@@ -87,14 +98,35 @@ import { TokenState } from '../../../store/tokens/TokensReducer';
                         'Authorization': token
                     }
                 })
-                alert('Postagem atualizada com sucesso');
+                toast.success("Postagem atualizada com sucesso!", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+        
+                });
+
             } else {
                 post(`/postagens`, postagem, setPostagem, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Postagem cadastrada com sucesso');
+                toast.success("Postagem cadastrada com sucesso!", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+        
+                });
             }
             back()
 

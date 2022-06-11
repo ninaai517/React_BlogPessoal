@@ -6,6 +6,7 @@ import UserLogin from '../../model/UserLogin';
 import './Login.css';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../store/tokens/Actions';
+import { toast } from 'react-toastify';
 
 function Login(){
 
@@ -56,10 +57,29 @@ function Login(){
             try{
                 
                 await login(`/usuarios/logar`, userLogin, setToken)
-              
-                alert('Usuário logado com sucesso!');
+                toast.success("Usuário logado com sucesso!", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+        
+                });
             } catch(error){
-                alert('Erro de autenticação ao logar! Tente novamente.');
+                toast.error("Erro de autenticação ao logar! Tente novamente!", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+        
+                });
             }
         } 
 
